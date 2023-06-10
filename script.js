@@ -1,34 +1,31 @@
-const choices = ["rock", "paper", "scissor"]
+const choiceButtons = document.querySelectorAll("#choiceButtons");
+let playerSelection;
+let computerSelection;
+let results;
 
-	function getComputerChoice(){
-		return choices[Math.floor(Math.random() * choices.length)];
-}
+choiceButtons.forEach(button => button.addEventListener('click', () => {
+	
+	playerSelection = button.textContent;
+	console.log(playerSelection);
+	getComputerChoice();
+	console.log(getComputerChoice());
 
-function playRound(playerSelection, computerSelection){
-	if(playerSelection === computerSelection){
-		console.log("It's a tie!");
+	document.querySelector("#playerText").innerHTML = `Player: ${playerSelection}`;
+	document.querySelector("#computerText").innerHTML = `Computer: ${computerSelection}`;
+	// getResult();
+}));
 
-	} else if(playerSelection === "rock" && computerSelection === "paper"){
-		console.log("You lose. Paper beats rock.");
-	} else if(playerSelection === "rock" && computerSelection === "scissor"){
-		console.log("You win. Rock beats scissor.");
-
-	} else if(playerSelection === "paper" && computerSelection === "rock"){
-		console.log("You win. Paper beats rock.");
-	}  else if(playerSelection === "paper" && computerSelection === "scissor"){
-		console.log("You lose. Scissor beats paper.");
-
-	}	else if(playerSelection === "scissor" && computerSelection === "rock"){
-		console.log("You lose. Rock beats scissor.");
-	}	else if(playerSelection === "scissor" && computerSelection === "paper"){
-		console.log("You win. Scissor beats paper.");
+function getComputerChoice(){
+	computerSelection = Math.floor(Math.random() * 3) + 1;
+	switch(computerSelection){
+		case 1:
+			computerSelection = "ROCK";
+			break;
+		case 2:
+			computerSelection = "PAPER";
+			break;
+		case 3:
+			computerSelection = "SCISSORS";
+			break;
 	}
 }
-
-const computerSelection = getComputerChoice();
-const askPlayerSelection = prompt("Rock, paper, or scissor. Choose one...");
-const playerSelection = askPlayerSelection;
-console.log(playerSelection);
-console.log(playRound(playerSelection, computerSelection));
-
-
