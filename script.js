@@ -20,7 +20,7 @@ choiceButtons.forEach(button => button.addEventListener('click', () => {
 
 function getResult(){
 	if(playerSelection === computerSelection){
-		resultsText.innerHTML = "Result: It's a tie.";
+		resultsText.innerHTML = "Result: It's a DRAW.";
 	}	else if((playerSelection === "ROCK") && (computerSelection === "SCISSORS")){
 		resultsText.innerHTML = "Result: You WIN."
 	} 	else if((playerSelection === "PAPER") && (computerSelection === "ROCK")){
