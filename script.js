@@ -1,3 +1,6 @@
+let playerText = document.querySelector("#playerText");
+let computerText = document.querySelector("#computerText");
+let resultsText = document.querySelector("#resultsText");
 const choiceButtons = document.querySelectorAll("#choiceButtons");
 let playerSelection;
 let computerSelection;
@@ -10,10 +13,24 @@ choiceButtons.forEach(button => button.addEventListener('click', () => {
 	getComputerChoice();
 	console.log(getComputerChoice());
 
-	document.querySelector("#playerText").innerHTML = `Player: ${playerSelection}`;
-	document.querySelector("#computerText").innerHTML = `Computer: ${computerSelection}`;
-	// getResult();
+	playerText.innerHTML = `Player: ${playerSelection}`;
+	computerText.innerHTML = `Computer: ${computerSelection}`;
+	getResult();
 }));
+
+function getResult(){
+	if(playerSelection === computerSelection){
+		resultsText.innerHTML = "Result: It's a tie.";
+	}	else if((playerSelection === "ROCK") && (computerSelection === "SCISSORS")){
+		resultsText.innerHTML = "Result: You WIN."
+	} 	else if((playerSelection === "PAPER") && (computerSelection === "ROCK")){
+		resultsText.innerHTML = "Result: You WIN."
+	}	else if((playerSelection === "SCISSORS") && (computerSelection === "PAPER")){
+		resultsText.innerHTML = "Result: You WIN."
+	}	else {
+		resultsText.innerHTML = "Result: You LOSE."
+	}
+}
 
 function getComputerChoice(){
 	computerSelection = Math.floor(Math.random() * 3) + 1;
