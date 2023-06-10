@@ -16,6 +16,7 @@ choiceButtons.forEach(button => button.addEventListener('click', () => {
 	playerText.innerHTML = `Player: ${playerSelection}`;
 	computerText.innerHTML = `Computer: ${computerSelection}`;
 	getResult();
+
 }));
 
 function getResult(){
