@@ -1,0 +1,21 @@
+body{
+	box-sizing: border-box;
+}
+
+div.gameTexts{
+	display: flex;
+	flex: auto;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+} 
+
+div.choiceButtons{
+	margin: 20px;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+} 
